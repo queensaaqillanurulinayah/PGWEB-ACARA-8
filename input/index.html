@@ -1,0 +1,140 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+      /* ---------- GLOBAL STYLE ---------- */
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #e0e7ff, #f3f4f6);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        color: #1e293b;
+      }
+
+      /* ---------- SECTION CONTAINER ---------- */
+      section {
+        background: #ffffff;
+        width: 90%;
+        max-width: 500px;
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        animation: fadeIn 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      h2 {
+        color: #1e3a8a;
+        margin-bottom: 25px;
+      }
+
+      /* ---------- FORM STYLE ---------- */
+      form {
+        text-align: left;
+      }
+
+      label {
+        font-weight: 600;
+        display: block;
+        margin-top: 10px;
+        color: #334155;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: border-color 0.3s ease;
+      }
+
+      input[type="text"]:focus {
+        outline: none;
+        border-color: #4f46e5;
+      }
+
+      input[type="submit"] {
+        background-color: #4f46e5;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+        margin-top: 20px;
+        width: 100%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #3730a3;
+        transform: translateY(-2px);
+      }
+
+      #informasi {
+        margin-top: 10px;
+        color: #b91c1c;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      /* ---------- FOOTER ---------- */
+      footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 13px;
+        color: #64748b;
+      }
+    </style>
+  </head>
+<body> 
+  <section>
+ <h2>Form Input</h2> 
+ 
+ <form action="input.php" onsubmit="return validateForm()" method="post"> 
+   <label for="kecamatan">Kecamatan:</label><br> 
+   <input type="text" id="kec" name="kecamatan" value=""><br> 
+   <label for="kecamatan">Longitude:</label><br> 
+   <input type="text" id="long" name="longitude" value=""><br> 
+   <label for="kecamatan">Latitude:</label><br> 
+   <input type="text" id="lat" name="latitude" value=""><br> 
+   <label for="luas">Luas:</label><br> 
+   <input type="text" id="luas" name="luas" value=""><br> 
+   <label for="jumlah_penduduk">Jumlah Penduduk:</label><br> 
+   <input type="text" id="jml_ppdk" name="jumlah_penduduk" value=""><br><br> 
+   <input type="submit" value="Submit"> 
+ </form>  
+ 
+ <p id="informasi"></p> 
+ </section>
+
+ <script> 
+  function validateForm() { 
+     
+    let luas = document.getElementById("luas").value; 
+    let text=""; 
+    if (isNaN(luas) || luas < 1) { 
+   text = "Data luas harus angka dan tidak boleh bernilai negatif"; 
+// stop the form submission 
+event.preventDefault(); 
+}  
+document.getElementById("informasi").innerHTML = text; 
+} 
+</script> 
+</div>
+</body> 
+</html> 
